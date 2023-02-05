@@ -1,16 +1,61 @@
 import React from 'react';
-import {Title, Subtitle} from './styles';
+import {MdAddShoppingCart} from 'react-icons/md'
+import { Container, List, Unit } from './styles';
+
 function Home() {
   return (
-    <>
-    <Title>Home</Title>
-    <Subtitle>Home</Subtitle>
-    <a href='/cart'>Cart</a>
-    <ul>
-        <li>List 1</li>
-        <li>List 2</li>
-    </ul>
-    </>
+   <Container>
+      <List>
+        <Unit>
+          <img src='' alt='Travel' />
+          <p>Israel</p>
+          <strong>240.00</strong>
+        
+          <button type='button'>
+            <div>
+              <MdAddShoppingCart size={16} color='#fff'/>
+            </div>
+            <span>Agregar al carrito</span>
+          </button>
+        </Unit>
+        <Unit>
+          <img src='' alt='Travel' />
+          <p>Israel</p>
+          <strong>240.00</strong>
+        
+          <button type='button'>
+            <div>
+              <MdAddShoppingCart size={16} color='#fff'/>
+            </div>
+            <span>Agregar al carrito</span>
+          </button>
+        </Unit>
+        <Unit>
+          <img src='' alt='Travel' />
+          <p>Israel</p>
+          <strong>240.00</strong>
+        
+          <button type='button'>
+            <div>
+              <MdAddShoppingCart size={16} color='#fff'/>
+            </div>
+            <span>Agregar al carrito</span>
+          </button>
+        </Unit>
+        <Unit>
+          <img src='' alt='Travel' />
+          <p>Israel</p>
+          <strong>240.00</strong>
+        
+          <button type='button'>
+            <div>
+              <MdAddShoppingCart size={16} color='#fff'/>
+            </div>
+            <span>Agregar al carrito</span>
+          </button>
+        </Unit>
+      </List>
+   </Container>
   ); 
 }
 export default Home;
