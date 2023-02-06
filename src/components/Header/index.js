@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
 import {FaShoppingCart} from 'react-icons/fa'
 import { Container, HeaderContainer, Cart } from './styles';
+import CartContext from '../../context/cart';
 
 function Header (){
+
+    const {setState, state} = useContext(CartContext);
+
+    const totalQuantity = state.cart.reduce(
+        (acc, travel) => acc + travel.quantity,
+        0,
+    );
+
     return (
         <Container>
             <HeaderContainer>
@@ -14,7 +23,7 @@ function Header (){
              <Link to='/cart'>
                 <Cart>
                     <div>
-                        <span>0</span>
+                        <span>{totalQuantity}</span>
                     </div>
                     <FaShoppingCart size={36} color='#fff'/>
                 </Cart>
