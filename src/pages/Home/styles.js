@@ -38,7 +38,7 @@ export const Unit = styled.li`
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    padding: 46px 20 px;
+    padding: 46px 20px;
     img{
         max-width:240px
     }

@@ -62,7 +62,7 @@ export const Subtotal = styled.div`
     display: flex; 
     font-weight: 600;
     font-size: 16px;
-    alig-items: right;
+    align-items: right;
 
     p{
         margin-right: 10px;
