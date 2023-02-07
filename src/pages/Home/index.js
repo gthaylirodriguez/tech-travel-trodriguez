@@ -38,7 +38,7 @@ function Home() {
         <Unit>
           <img src={el.photo} alt='Travel' />
           <p>{el.title}</p>
-          <strong>{el.price}</strong>
+          <strong>$ {el.price}</strong>
           <button type='button' onClick={()=> handleAddToCart(el)}>
             <div>
               <MdAddShoppingCart size={16} color='#fff'/>

@@ -68,3 +68,20 @@ export const Subtotal = styled.div`
         margin-right: 10px;
     }
 `;
+
+export const Total = styled.div`
+    display: flex; 
+    font-weight: 600;
+    font-size: 18px;
+    align-items: right;
+
+    p{
+        margin-right: 10px;
+        align-items:right;
+    }
+
+    strong{
+        font-size: 24px;
+    }
+
+`;

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import CartContext from '../../context/cart';
 import {MdDelete} from 'react-icons/md';
-import {Container, ContainerList, TravelItem, Info, Quantity, Subtotal} from './styles';
+import {Container, ContainerList, TravelItem, Info, Quantity, Subtotal, Total} from './styles';
 
 
 function Cart() {
@@ -11,14 +11,23 @@ function Cart() {
     const copyCart = [...state.cart];
     const travelIndex = copyCart.findIndex((el)=> el.id === travel.id);
 
-    if (travelIndex > 0){
+    if (copyCart[travelIndex].quantity>1){
+      copyCart[travelIndex].quantity = copyCart[travelIndex].quantity - 1;
+    }
+      else if(copyCart[travelIndex].quantity===1){
       delete copyCart[travelIndex];
     }
 
     setState({
       cart: copyCart, 
     });
+    console.log([...state.cart]);
   }
+
+  const totalItems = state.cart.reduce(
+    (acc, travel) => acc + (travel.quantity * travel.price),
+    0,
+  );
 
   return (
     <Container>
@@ -28,11 +37,11 @@ function Cart() {
           <img src={el.photo} alt= {el.title}/>
           <Info>
             <p>{el.title}</p>
-            <strong>{el.price}</strong>
+            <strong>$ {el.price}</strong>
           </Info>
           <Quantity readOnly type='number' value= {el.quantity} />
           <Subtotal>
-            <p>{el.quantity * el.price}</p>
+            <p>$ {el.quantity * el.price}</p>
             <div>
               <button type= 'button' onClick={()=> handleRemoveToCart(el)}>
                 <MdDelete size={24} color= '#0676d9'/>
@@ -42,6 +51,13 @@ function Cart() {
         </TravelItem>
       ))}
 
+      <TravelItem>
+      <Info></Info>
+          <Total>
+            <p>Total</p>
+            <div><strong>$ {totalItems}</strong></div>
+          </Total>
+        </TravelItem>
       </ContainerList>
     </Container>
   )
