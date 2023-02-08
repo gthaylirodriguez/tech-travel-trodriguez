@@ -35,7 +35,7 @@ function Home() {
    <Container>
       <List>
         {travelList.map ((el)=>(
-        <Unit>
+        <Unit key={el.id}>
           <img src={el.photo} alt='Travel' />
           <p>{el.title}</p>
           <strong>$ {el.price}</strong>

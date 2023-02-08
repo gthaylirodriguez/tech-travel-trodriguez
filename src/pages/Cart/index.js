@@ -15,7 +15,8 @@ function Cart() {
       copyCart[travelIndex].quantity = copyCart[travelIndex].quantity - 1;
     }
       else if(copyCart[travelIndex].quantity===1){
-      delete copyCart[travelIndex];
+      copyCart.splice(travelIndex, 1);
+      console.log(copyCart);
     }
 
     setState({
@@ -33,7 +34,7 @@ function Cart() {
     <Container>
       <ContainerList>
         {state.cart.map((el)=>(
-        <TravelItem>
+        <TravelItem key = {el.id}>
           <img src={el.photo} alt= {el.title}/>
           <Info>
             <p>{el.title}</p>
